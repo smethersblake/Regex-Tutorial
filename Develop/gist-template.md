@@ -165,6 +165,8 @@ Special characters lose their special meaning inside bracket expressions.
 
 ### Greedy and Lazy Match
 
+Quantifiers can be either greeedy or lazy, by default quantifiers are greedy. A greedy quantifier will attempt to match as many characters as possible as it goes through the regex string. A lazy quantifier will attempt to match as few character as it goes through the regex string.
+
 ### Boundaries
 
 ### Back-references
