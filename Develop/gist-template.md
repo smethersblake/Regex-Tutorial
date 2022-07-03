@@ -55,6 +55,8 @@ The pipe symbol `|` is an alternation and it matches the expression before or af
 
 ### Character Classes
 
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
 A character class or also known as a character set is defined by using square brackets `[]` around the character/characters you want to match. If you wanted to match the character `a` or an `e` we would use the character class `[ae]`. This character class will match either `a` or `e`. The order of the characters doesn't matter the results will be the same.
 
 If you would want to match a range of numbers or letters like we are in our exaple you would use the dash symbol `-`. In our example we are matching a range of `0` and `9` with this expression `[0-9]` and the range between `a` and `z` using `[a-z]`. We can combine both expressions into one by placing them both inside one set of square brackets `[]` without spaces like this example `[a-z0-9]`.
@@ -72,9 +74,15 @@ The following are other type of character class that can be used
 - Not digit `/D` will match any character that is not a number.
 - Not whitespace `\S` will match any character that is not a whitespace character.
 
-`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
-
 ### Flags
+
+Flags follow the closing forword slash `/` of the expression, and it changes how the expression is interpreted.
+
+We do not have any flags in our example expression.
+
+These are some examples of flags.
+
+-
 
 ### Grouping and Capturing
 
