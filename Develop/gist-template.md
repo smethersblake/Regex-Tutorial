@@ -51,7 +51,28 @@ Other examples of quantifiers which are not included in this example are:
 
 ### OR Operator
 
+The pipe symbol `|` is an alternation and it matches the expression before or after it. You can use the pipe symbol `|` to affect a single character or a whole expression.
+
 ### Character Classes
+
+A character class or also known as a character set is defined by using square brackets `[]` around the character/characters you want to match. If you wanted to match the character `a` or an `e` we would use the character class `[ae]`. This character class will match either `a` or `e`. The order of the characters doesn't matter the results will be the same.
+
+If you would want to match a range of numbers or letters like we are in our exaple you would use the dash symbol `-`. In our example we are matching a range of `0` and `9` with this expression `[0-9]` and the range between `a` and `z` using `[a-z]`. We can combine both expressions into one by placing them both inside one set of square brackets `[]` without spaces like this example `[a-z0-9]`.
+
+The following are other type of character class that can be used
+
+- The caret `^` is used to make the character a negated set by placing it as the first thing inside the expression like the following `[^abc]`. A negated set will match any character that is not in the negated set. The expression `[^abc]` will not match the characters `a`, `b`, and `c` and characters are case sesitive.
+
+- The period symbol `.` will match any character except line breaks. in our example the `.` actually refers to the periods in the email and are not a character class.
+- Match any `[/s/S]` will match any character.
+- Word `/w` will match any word.
+- Digit `/d` matches any number.
+- Whitespace `\s` will match any character that leaves whitespace like spaces, tabs, line breaks, etc.
+- Not word `/W` will match any character that is not a word.
+- Not digit `/D` will match any character that is not a number.
+- Not whitespace `\S` will match any character that is not a whitespace character.
+
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
 
 ### Flags
 
