@@ -76,15 +76,28 @@ The following are other type of character class that can be used
 
 ### Flags
 
-Flags follow the closing forword slash `/` of the expression, and it changes how the expression is interpreted.
+Flags follow the closing forward slash `/` of the expression, and it changes how the expression is interpreted.
 
 We do not have any flags in our example expression.
 
 These are some examples of flags.
 
--
+- Global search `g` will store the index of the last match.
+- Ignore case `i` will make the entire expression case-sensitive.
+- Multiline `m` will cause the beginning and end anchors to match the start and end of a line instead of the whole string.
+- Unicode `u` allows extended unicode escapes in the form \x{FFFFF}.
+- Sticky `y` will only match from its last index position and ignores the global search flag.
+- Dotall `s` causes dot (.) to match any character.
 
 ### Grouping and Capturing
+
+Groups allow you to combine multiple tokens together and will be captured and executed as one group.
+
+`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+
+With groups we can capture `a`, `b`, and `c` as one group and extracting a substring by wrapping them in a set of parenthesis `(abc)`.
+
+In our example we use capture 3 groups: `([a-z0-9_\.-]+)`, `([\da-z\.-]+)`, and `([a-z\.]{2,6})`. By combining these tokens into groups it allows the substring to be verified before the at symbol `@`, another one before the back slash and period `\.`, and finally one more for the email domain name.
 
 ### Bracket Expressions
 
