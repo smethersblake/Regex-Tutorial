@@ -1,6 +1,6 @@
-# Title (replace with your title)
+# RegEx Tutorial
 
-Introductory paragraph (replace this with your text)
+Regular expression also known as RegEx is simply a pattern of characters that are used to validate character combinations inside of a coding language. In this tutorial we will take a regex pattern and break it down to help explain what it does.
 
 ## Summary
 
