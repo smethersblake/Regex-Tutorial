@@ -34,6 +34,36 @@ The begining of the string is identified by the caret `^` and the end of the str
 
 `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
 
+Here are some string anchor examples:
+
+    ^ caret matches at the start of the string the regex pattern is applied to.
+
+-     .$ matches f in [abc\ndef]
+
+
+    $ dollar symbol matches at the end of the string the regex pattern is applied to.
+
+-     ^. matches a in [abc\ndef]
+
+
+    \A matches at the start of the string the regex pattern is applied to.
+
+-     \A\w matches only a in abc
+
+
+    \z matches at the end of the string the regex pattern is applied to.
+
+-     \w\z matches f in abc\ndef but fails to match abc\ndef\n
+
+  \z matches at the end of the string the regex pattern is applied to.
+
+-     \w\Z matches f in abc\ndef but fails to match abc\ndef\n or abc\ndef\n\n
+
+
+    \` (backslash backtick) matches at the start of the string the regex pattern is applied to.
+
+-     \`\w matches only a in abc
+
 ### Quantifiers
 
 A quantifier is a repitition operator. A quantifier lets the system know to match the preceding token a set number of times. The quantifier can be considered a lazy quantifier or a greedy quantifier. For more about lazy or greedy quantifiers please read [Greedy and Lazy Match](#greedy-and-lazy-match).
@@ -168,6 +198,16 @@ Special characters lose their special meaning inside bracket expressions.
 Quantifiers can be either greeedy or lazy, by default quantifiers are greedy. A greedy quantifier will attempt to match as many characters as possible as it goes through the regex string. A lazy quantifier will attempt to match as few character as it goes through the regex string.
 
 ### Boundaries
+
+The `\b` is an anchor like the caret `^` and the dollar sign `$`. It matches a position that is called a `word boundary`. The word boundary match is zero-length.
+
+The following three positions are qualified as word boundaries:
+
+- Before the first character in a string if the first character is a word character.
+
+- After the last character in a string if the last character is a word character.
+
+- Between two characters in a string if one is a word character and the other is not.
 
 ### Back-references
 
