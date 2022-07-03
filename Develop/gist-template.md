@@ -59,7 +59,55 @@ The pipe symbol `|` is an alternation and it matches the expression before or af
 
 A character class or also known as a character set is defined by using square brackets `[]` around the character/characters you want to match. If you wanted to match the character `a` or an `e` we would use the character class `[ae]`. This character class will match either `a` or `e`. The order of the characters doesn't matter the results will be the same.
 
-If you would want to match a range of numbers or letters like we are in our exaple you would use the dash symbol `-`. In our example we are matching a range of `0` and `9` with this expression `[0-9]` and the range between `a` and `z` using `[a-z]`. We can combine both expressions into one by placing them both inside one set of square brackets `[]` without spaces like this example `[a-z0-9]`.
+If you would want to match a range of numbers or letters like we are in our exaple you would use the hyphen symbol `-`. In our example we are matching a range of `0` and `9` with this expression `[0-9]` and the range between `a` and `z` using `[a-z]`. We can combine both expressions into one by placing them both inside one set of square brackets `[]` without spaces like this example `[a-z0-9]`.
+
+There are certain named classes of characters that are predefined within the bracket expression `[: :]`.
+
+Here is a few predefined character classes useing the bracket expression `[: :]`.
+
+- `[:alnum:]`:
+
+  - Matches a alphanumeric character `[a-zA-Z0-9]` or `[[:alpha:][:digit:]]`.
+
+- `[:alpha:]`
+
+  - Matches a alphabetic character `[a-zA-Z]`.
+
+- `[:blank:]`
+
+  - Matches a whitespace character, excluding line breaks `[ \t]`.
+
+- `[:digit:]`
+
+  - Matches a digit `[0-9]` (also written as `\d`).
+
+- `[:graph:]`
+
+  - Matches a visible character `[\x21-\x7E]`.
+
+- `[:lower:]`
+
+  - Matches a lowercase letter `[a-z]`
+
+- `[:print:]`
+
+  - Matches a visible character or the space character `[\x20-\x7E]`
+
+- `[:punct:]`
+
+  - Matches a punctuation character `[!"#$%&'()*+,\-./:;<=>?@[\]^_{|}~]`.
+
+- `[:space:]`
+
+  - Matches a whitespace character, including a line break `[ \t\r\n\v\f]` (also written as `/s`).
+
+- `[:upper:]`
+
+  - Matches a uppercase letter [A-Z]
+
+- `[:xdigit:]`
+
+  - matches a hexadecimal digit `[A-Fa-f0-9]`
 
 The following are other type of character class that can be used
 
@@ -100,6 +148,20 @@ With groups we can capture `a`, `b`, and `c` as one group and extracting a subst
 In our example we use capture 3 groups: `([a-z0-9_\.-]+)`, `([\da-z\.-]+)`, and `([a-z\.]{2,6})`. By combining these tokens into groups it allows the substring to be verified before the at symbol `@`, another one before the back slash and period `\.`, and finally one more for the email domain name.
 
 ### Bracket Expressions
+
+Bracket expressions are enclosed in square brackets `[]` and will match a specific set of single characters and certain predefined named classes within the square brackets `[]`.
+
+Special characters lose their special meaning inside bracket expressions.
+
+- The right square bracket `]` ends the bracket expression if it is not the first list item. If you would like to make the `]` character a list item you will need to put it first.
+- The left square bracket with period `[.` represents the open collating symbol.
+- The period with right square bracket `.]` represents the close collating symbol.
+- The left square bracket with equal symbol `[=` represents the open equivalence class.
+- The equal symbol with right square bracket `=]` represents the close equivalence class.
+- The left square bracket with colon symbol `[:` represents the open character class symbol, and should be followed by a valid character class name.
+- The colon symbol with right square bracket `:]` represents the close character class symbol.
+- The hyphen symbol `-` represents the range if it’s not first or last in a list or the ending point of a range.
+- The caret symbol `^` represents the characters not in the list. If you want to make the caret `^` character a list item, place it anywhere but first.
 
 ### Greedy and Lazy Match
 
