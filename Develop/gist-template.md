@@ -40,18 +40,15 @@ Here are some string anchor examples:
 
 -     .$ matches f in [abc\ndef]
 
-
-    $ dollar symbol matches at the end of the string the regex pattern is applied to.
+  $ dollar symbol matches at the end of the string the regex pattern is applied to.
 
 -     ^. matches a in [abc\ndef]
 
-
-    \A matches at the start of the string the regex pattern is applied to.
+  \A matches at the start of the string the regex pattern is applied to.
 
 -     \A\w matches only a in abc
 
-
-    \z matches at the end of the string the regex pattern is applied to.
+  \z matches at the end of the string the regex pattern is applied to.
 
 -     \w\z matches f in abc\ndef but fails to match abc\ndef\n
 
@@ -59,8 +56,7 @@ Here are some string anchor examples:
 
 -     \w\Z matches f in abc\ndef but fails to match abc\ndef\n or abc\ndef\n\n
 
-
-    \` (backslash backtick) matches at the start of the string the regex pattern is applied to.
+  \` (backslash backtick) matches at the start of the string the regex pattern is applied to.
 
 -     \`\w matches only a in abc
 
@@ -211,7 +207,44 @@ The following three positions are qualified as word boundaries:
 
 ### Back-references
 
+Back-references provide a convenient way to identify a repeated character or substring within a string. If the input string contains multiple occurrences of an arbitrary substring, you can match the first occurrence with a capturing group, and then use a backreference to match subsequent occurrences of the substring.
+
+Here are some different types of Back-references:
+
+- Numbered Back-references:
+
+  - A numbered back-reference uses the syntax `\`_number_
+
+    - Where _number_ is the ordinal position of the capturing group in the regular expression.
+
+- Named Back-references:
+
+  - A named back-reference uses the following syntax `\k<`_name_`>`
+
+    - Where name is the name of a capturing group defined in the regular expression pattern.
+
+- Named Numeric Back-references:
+
+  - In a named back-reference with `\k`, name can also be the string representation of a number.
+  - If _name_ is the string representation of a \__number_, and no capturing group has that name, `\k<`_name_`>` is the same as the backreference `\`_number_, where _number_ is the ordinal position of the capture.
+
 ### Look-ahead and Look-behind
+
+Lookahead and lookbehind referred to as lookaround are useful when we would like to match something depending on the context before or after it.
+
+- Look-ahead allows you look for a character but only if it followed by a specific character.
+  - Positive Look-ahead:
+    - In this example `X(?=Y)` regex will find `X` and check if there is `Y` immediately after it. If `X` is not before `Y` the potential match is skipped and the serach continues.
+  - Negitive Look-ahead:
+    - In this example `X(?!Y)` regex will find `X` and check if it is not followed by `Y`. If `X` is followed by `Y` the potential match is skipped and the serach continues.
+- Look-behind allows you to look for a character but only if it is behind by a specific character.
+
+  - Positive Look-behind:
+
+    - In this example `(?<=Y)X` regex will find `X` and check if `Y` is immediately before it. If `Y` is not before `X` the potential match is skipped and the serach continues.
+
+  - Negitive Look-behind:
+    - In this example `(?<!Y)X` regex will find `X` and check if `Y` is not before it. If `Y` is before `X` the potential match is skipped and the serach continues.
 
 ## Author
 
