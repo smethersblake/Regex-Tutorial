@@ -248,4 +248,4 @@ Lookahead and lookbehind referred to as lookaround are useful when we would like
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Blake is a student enrolled in coding bootcamp out of the University of Minnesota to become a full stack web developer. [GitHub](https://github.com/smethersblake).
